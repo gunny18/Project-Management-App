@@ -1,9 +1,17 @@
 import NoProjectCreated from "./NoProjectCreated";
+import ActiveProject from "./ActiveProject";
 
-const Home = ({ onAddProject }) => {
+const Home = ({ onAddProject, activeProject, onDeleteProject }) => {
   return (
     <>
-      <NoProjectCreated onAddProject={onAddProject} />
+      {activeProject === null ? (
+        <NoProjectCreated onAddProject={onAddProject} />
+      ) : (
+        <ActiveProject
+          activeProject={activeProject}
+          onDeleteProject={onDeleteProject}
+        />
+      )}
     </>
   );
 };
